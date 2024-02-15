@@ -55,7 +55,7 @@ app.get('/user/login', async(req, res) => {
 
 
 //POST Recipe
-app.post('/recipe', async(req, res) => {
+app.post('/recipe/add', async(req, res) => {
     try {
         const existingRecipe = await Recipe.findOne({ name: req.body.name });
         if (existingRecipe) {
@@ -92,7 +92,7 @@ app.get('/recipe/:id', async(req, res) => {
 });
 
 //PUT or Update Recipe
-app.put('/recipe/:id', async(req, res) => {
+app.put('/recipe/update/:id', async(req, res) => {
     try {
         const { id } = req.params;
         const recipe = await Recipe.findByIdAndUpdate(id, req.body);
@@ -108,7 +108,7 @@ app.put('/recipe/:id', async(req, res) => {
 
 
 //DELETE Recipe
-app.delete('/recipe/:id', async(req, res) => {
+app.delete('/recipe/delete/:id', async(req, res) => {
     try {
         const { id } = req.params;
         const recipe = await Recipe.findByIdAndDelete(id);
