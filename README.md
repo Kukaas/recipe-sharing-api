@@ -192,13 +192,13 @@ This project requires on various dependencies to perform properly. Here's a quic
 
 **Usage:** In this project, Express is utilized to build the server and handle the API routes.
 
-### 🔑 bcrypt
+### 📚 mongoose
 
-**Version:** ^5.1.1
+**Version:** ^8.1.2
 
-**Description:** Bcrypt is a widely used library for securely hashing passwords in software applications. It employs a key feature called adaptive hashing to protect against brute-force attacks.
+**Description:** This package contains a MongoDB object modeling tool geared for use in an asynchronous environment.
 
-**Usage:**  Bcrypt is used in conjunction with the password hashing functionality provided by the `passport-local-mongoose` module. It allows us to hash passwords before storing them in our
+**Usage:** In this project, Mongoose is used to model the application data and interact with the MongoDB database.
 
 ## 🔧 DevDependencies
 
