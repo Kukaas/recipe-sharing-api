@@ -104,7 +104,7 @@ This API allows you to manage recipes. Here's how you can use the endpoints:
 
 ## Get Recipes by Tag
 
-**Endpoint:** `/recipes/tag/:tag`
+**Endpoint:** `/recipe/tag/:tag`
 
 **Method:** `GET`
 
@@ -160,20 +160,29 @@ This API allows you to manage recipes. Here's how you can use the endpoints:
 
 - `id`: The ID of the recipe.
 
+## Signup User
+
+**Endpoint:** `/user/signup`
+
+**Method:** `POST`
+
+**Description:** Add a new user.
+
+## Login User
+
+**Endpoint:** `/user/login`
+
+**Method:** `POST`
+
+**Description:** Login a user.
+
+
 
 # 📚 Dependencies Guide
 
 This project requires on various dependencies to perform properly. Here's a quick summary for each:
 
 ## Dependencies
-
-### 🌐 cors
-
-**Version:** ^2.8.5
-
-**Description:** This package is used to enable Cross-Origin Resource Sharing (CORS).
-
-**Usage:** In this project, cors is used to enable CORS, allowing the server to accept requests from different origins.
 
 ### 🚀 express
 
@@ -183,13 +192,13 @@ This project requires on various dependencies to perform properly. Here's a quic
 
 **Usage:** In this project, Express is utilized to build the server and handle the API routes.
 
-### 📚 mongoose
+### 🔑 bcrypt
 
-**Version:** ^8.1.2
+**Version:** ^5.1.1
 
-**Description:** This package contains a MongoDB object modeling tool geared for use in an asynchronous environment.
+**Description:** Bcrypt is a widely used library for securely hashing passwords in software applications. It employs a key feature called adaptive hashing to protect against brute-force attacks.
 
-**Usage:** In this project, Mongoose is used to model the application data and interact with the MongoDB database.
+**Usage:**  Bcrypt is used in conjunction with the password hashing functionality provided by the `passport-local-mongoose` module. It allows us to hash passwords before storing them in our
 
 ## 🔧 DevDependencies
 
