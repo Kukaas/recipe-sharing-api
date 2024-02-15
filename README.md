@@ -192,7 +192,7 @@ This project requires on various dependencies to perform properly. Here's a quic
 
 **Usage:** In this project, Express is utilized to build the server and handle the API routes.
 
-### 🚀 bcrypt
+### 🔑 bcrypt
 
 **Version:** ^5.1.1
 
