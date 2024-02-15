@@ -71,7 +71,7 @@ app.post('/recipe/add', async(req, res) => {
 });
 
 //GET Recipe
-app.get('/recipe', async(req, res) => {
+app.get('/recipes', async(req, res) => {
     try {
         const recipes = await Recipe.find({});
         res.status(200).json(recipes);
@@ -122,7 +122,6 @@ app.get('/recipe/name/:name', async(req, res) => {
         res.status(500);
         throw new Error(error.message);
       }
-      
 });
 
 //PUT or Update Recipe

@@ -1,4 +1,4 @@
-# 🍔 Recipe Sharing API
+# 🍕 Recipe Sharing API
 
 # Group Members
 
@@ -11,29 +11,39 @@
 
 This application is a Recipe Sharing System built using Node.js, Express, and MongoDB. It provides a RESTful API for creating, reading, updating, and deleting (CRUD) recipes.
 
-## Features
+## 🧩 Features
 
 In the culinary world, sharing and discovering new recipes is an integral part of the experience. The Recipe Sharing API aims to facilitate this exchange by providing developers with a platform to build applications that enable users to share, discover, and explore recipes effortlessly.
 
 1. **Recipe Management**:
-- **Create: Users can create their own recipes, including ingredients, preparation steps, cooking times, and more.**
-2. **Tag-based Search**: Users can search for recipes based on tags. This feature allows users to find all recipes that fall under a specific category, such as 'Vegetarian', 'Gluten-free', etc.
-3. **Name-based Search**: Users can search for recipes by their names. This feature allows users to find a specific recipe quickly if they know its name.
-4. 
-5. **Error Handling**: The application includes robust error handling. If an error occurs, the application will return a helpful error message and, in development mode, a stack trace.
+- **Create:**Users can create their own recipes, including ingredients, preparation steps, and more.
+- **Retrieve:**Users can access recipes  created by other users with detailed information such as title, description, ingredients, instructions, ratings.
+- **Update:**Recipes can be edited and modified to reflect changes or improvements.
+- **Delete:**Users have the ability to remove recipes from their collection.
 
-## Purpose
+2. **Search and Discovery**:
+- **Name-Based Search:** Users may search for recipes by name. This feature enables users to easily locate a certain recipe if they know its name.
+- **Name-Based Search:** Users may search for recipes by tag. This tool allows users to search for all recipes that fit into a given category, such as 'Lunch', 'Breakfast', etc.
+- **ID-Based Search:** Users may search for recipes using their id.
 
-The purpose of this application is to provide a simple and efficient way to manage and search for recipes.
+4. **User Management**:
+- **Login**: Allows users to log in with an existing account. If no such user exists, a new one will be created.
+- **SignUp**: User is able to sign up with a unique username and password combination.
+
+5. **Error Handling**: The application has comprehensive error handling. If an error occurs, the program will display a useful error message and, in development mode, a stack trace.
+
+
+## 🎯Purpose
+The Recipe Sharing API facilitates the sharing and discovery of culinary recipes among users, fostering community engagement and knowledge sharing within the cooking community. It provides a centralized platform for users to explore diverse recipes, interact socially, and organize their cooking experiences conveniently.
+
 
 # ⚙ Local Setup
-
 Follow these steps to set up the application locally:
 
 1. **Clone the Repository**: First, clone the repository to your local machine using Git. You can do this by running the following command in your terminal:
 
 ```bash
-git clone https://github.com/itsmeYaz/recipes-sharing-API.git
+git clone https://github.com/Kukaas/recipe-sharing-api.git
 ```
 
 2. **Install Dependencies**: Navigate into the cloned repository directory and install the necessary dependencies. Run the following command in your terminal:
@@ -42,19 +52,19 @@ git clone https://github.com/itsmeYaz/recipes-sharing-API.git
 npm install
 ```
 
-3. **Set Up Environment Variables**: Copy the `.env.example` file and rename the copy to `.env`. Then, replace the placeholder values with your actual values. For example, replace "**YOUR MONGODB URL HERE**" with your actual MongoDB connection string.
+3. **Set Up Environment Variables**: Go to `index.js` file and change **mongoose.connect('mongodb+srv://admin:12345@api-sharing.wwdxcbn.mongodb.net/api-sharing?retryWrites=true&w=majority')** with your actual MONGODB connection.
 
 4. **Start the Server**: Now, you can start the server by running the following command in your terminal:
 
 ```bash
-npm run dev
+node . 
 ```
 
-The server will start, and you should see a message like <span style="color:green"><strong>Listening on http://localhost:8080...</strong></span> in your terminal.
+The server will start, and you should see a message like <span style="color:green"><strong>Server running on http://localhost:3000...</strong></span> in your terminal.
 
-5. **Test the Application**: You can now test the application by sending requests to <span style="color:green"><strong>Listening on http://localhost:8080/api/recipes</strong></span>. You can use a tool like Postman to send HTTP requests.
+5. **Test the Application**: You can now test the application by sending requests to <span style="color:green"><strong>Listening on http://localhost:3000/recipe</strong></span>. You can use a tool like Postman to send HTTP requests.
 
-# 🌐 Recipe API Endpoint Guide
+# 🌐 Recipe Sharing API Endpoint Guide
 
 This application provides several API endpoints for managing recipes:
 
@@ -62,7 +72,7 @@ This API allows you to manage recipes. Here's how you can use the endpoints:
 
 ## Get All Recipes
 
-**Endpoint:** `/api/recipes`
+**Endpoint:** `/recipes`
 
 **Method:** `GET`
 
@@ -70,11 +80,11 @@ This API allows you to manage recipes. Here's how you can use the endpoints:
 
 ## Get a Specific Recipe by ID
 
-**Endpoint:** `/api/recipes/:id`
+**Endpoint:** `/recipe/:id`
 
 **Method:** `GET`
 
-**Description:** Returns the recipe with the specified ID.
+**Description:** Returns a recipe with the provided ID..
 
 **Parameters:**
 
@@ -82,11 +92,11 @@ This API allows you to manage recipes. Here's how you can use the endpoints:
 
 ## Get Recipes by Name
 
-**Endpoint:** `/api/recipes/name/:name`
+**Endpoint:** `/recipe/name/:name`
 
 **Method:** `GET`
 
-**Description:** Returns recipes with the specified name.
+**Description:** Returns recipes with the provided name.
 
 **Parameters:**
 
@@ -94,11 +104,11 @@ This API allows you to manage recipes. Here's how you can use the endpoints:
 
 ## Get Recipes by Tag
 
-**Endpoint:** `/api/recipes/tag/:tag`
+**Endpoint:** `/recipes/tag/:tag`
 
 **Method:** `GET`
 
-**Description:** Returns recipes with the specified tag.
+**Description:** Returns recipes with the provided tag.
 
 **Parameters:**
 
@@ -106,7 +116,7 @@ This API allows you to manage recipes. Here's how you can use the endpoints:
 
 ## Create a New Recipe
 
-**Endpoint:** `/api/recipes`
+**Endpoint:** `/recipe`
 
 **Method:** `POST`
 
@@ -121,11 +131,11 @@ This API allows you to manage recipes. Here's how you can use the endpoints:
 
 ## Update a Recipe
 
-**Endpoint:** `/api/recipes/:id`
+**Endpoint:** `/recipe/update/:id`
 
 **Method:** `PUT`
 
-**Description:** Updates the recipe with the specified ID.
+**Description:** Updates the recipe with the provided ID.
 
 **Parameters:**
 
@@ -140,39 +150,20 @@ This API allows you to manage recipes. Here's how you can use the endpoints:
 
 ## Delete a Recipe
 
-**Endpoint:** `/api/recipes/:id`
+**Endpoint:** `/recipe/delete/:id`
 
 **Method:** `DELETE`
 
-**Description:** Deletes the recipe with the specified ID.
+**Description:** Deletes the recipe with the provided ID.
 
 **Parameters:**
 
 - `id`: The ID of the recipe.
 
-# 🌐 Live API
-
-The server has been deployed and is available for testing. You can interact with the API using different HTTP methods (GET, POST, PUT, DELETE).
-
-API Base URL: [https://recipe-sharing-api-v2.onrender.com](https://recipe-sharing-api-v2.onrender.com)
-
-## Get All Recipes
-
-**Endpoint:** `https://recipe-sharing-api-v2.onrender.com/api/recipes`
-
-**Method:** `GET`
-
-**Description:** Returns all recipes.
-
-**Example Request:**
-
-```bash
- GET https://recipe-sharing-api-v2.onrender.com/api/recipes
-```
 
 # 📚 Dependencies Guide
 
-This project uses several dependencies to function correctly. Here's a brief description of each one:
+This project requires on various dependencies to perform properly. Here's a quick summary for each:
 
 ## Dependencies
 
@@ -184,35 +175,19 @@ This project uses several dependencies to function correctly. Here's a brief des
 
 **Usage:** In this project, cors is used to enable CORS, allowing the server to accept requests from different origins.
 
-### 🔑 dotenv
-
-**Version:** ^16.4.2
-
-**Description:** This package is used to load environment variables from a `.env` file into `process.env`.
-
-**Usage:** In this project, dotenv is used to manage environment variables, keeping sensitive data like database connection strings secure.
-
 ### 🚀 express
 
 **Version:** ^4.18.2
 
-**Description:** This package is a fast, unopinionated, and minimalist web framework for Node.js.
+**Description:** This package provides a quick, unbiased, and lightweight web framework for Node.js..
 
-**Usage:** In this project, Express is used to create the server and manage the API routes.
-
-### 🛠️ express-async-handler
-
-**Version:** ^1.2.0
-
-**Description:** This package is a middleware for handling exceptions inside of async express routes and passing them to your express error handlers.
-
-**Usage:** In this project, express-async-handler is used to handle exceptions in asynchronous route handlers, improving error handling.
+**Usage:** In this project, Express is utilized to build the server and handle the API routes.
 
 ### 📚 mongoose
 
 **Version:** ^8.1.2
 
-**Description:** This package is a MongoDB object modeling tool designed to work in an asynchronous environment.
+**Description:** This package contains a MongoDB object modeling tool geared for use in an asynchronous environment.
 
 **Usage:** In this project, Mongoose is used to model the application data and interact with the MongoDB database.
 
