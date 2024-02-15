@@ -192,13 +192,21 @@ This project requires on various dependencies to perform properly. Here's a quic
 
 **Usage:** In this project, Express is utilized to build the server and handle the API routes.
 
+### 🚀 bcrypt
+
+**Version:** ^5.1.1
+
+**Description:** This package provides a quick, unbiased, and lightweight web framework for Node.js..
+
+**Usage:** In this project, Express is utilized to build the server and handle the API routes.
+
 ### 📚 mongoose
 
 **Version:** ^8.1.2
 
-**Description:** This package contains a MongoDB object modeling tool geared for use in an asynchronous environment.
+**Description:** Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose provides a straight-forward, schema-based solution to model your application data.
 
-**Usage:** In this project, Mongoose is used to model the application data and interact with the MongoDB database.
+**Usage:** In this project mongoose is used in conjunction with MongoDB to interact with the database.
 
 ## 🔧 DevDependencies
 
