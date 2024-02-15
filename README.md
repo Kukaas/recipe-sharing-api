@@ -160,20 +160,29 @@ This API allows you to manage recipes. Here's how you can use the endpoints:
 
 - `id`: The ID of the recipe.
 
+## Signup User
+
+**Endpoint:** `/user/signup`
+
+**Method:** `POST`
+
+**Description:** Add a new user.
+
+## Login User
+
+**Endpoint:** `/user/login`
+
+**Method:** `POST`
+
+**Description:** Login a user.
+
+
 
 # 📚 Dependencies Guide
 
 This project requires on various dependencies to perform properly. Here's a quick summary for each:
 
 ## Dependencies
-
-### 🌐 cors
-
-**Version:** ^2.8.5
-
-**Description:** This package is used to enable Cross-Origin Resource Sharing (CORS).
-
-**Usage:** In this project, cors is used to enable CORS, allowing the server to accept requests from different origins.
 
 ### 🚀 express
 
@@ -183,13 +192,13 @@ This project requires on various dependencies to perform properly. Here's a quic
 
 **Usage:** In this project, Express is utilized to build the server and handle the API routes.
 
-### 📚 mongoose
+### 🚀 joi
 
-**Version:** ^8.1.2
+**Version:** ^17.12.1
 
-**Description:** This package contains a MongoDB object modeling tool geared for use in an asynchronous environment.
+**Description:** Joi is a popular library used for data validation in JavaScript applications, particularly in Node.js applications. It provides a simple and powerful way to define schemas for validating JavaScript objects.
 
-**Usage:** In this project, Mongoose is used to model the application data and interact with the MongoDB database.
+**Usage:** In this project, joi  is used as the main schema validation library. It helps in validating data against defined schemas which
 
 ## 🔧 DevDependencies
 
