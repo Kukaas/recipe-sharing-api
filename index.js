@@ -15,6 +15,7 @@ app.use(express.urlencoded({extended: false}));
 //Register User
 app.post('/user/signup', async(req, res) => {
         const data = {
+            name: req.body.name,
             email: req.body.email,
             password: req.body.password
         }    
@@ -43,7 +44,7 @@ app.get('/user/login', async(req, res) => {
 
         const isPasswordMatch = await bcrypt.compare(req.body.password, check.password);
         if(isPasswordMatch){
-            const data = check.email; // Only include the email string
+            const data = check.name; // Only include the email string
             return res.status(200).json(`Sucessfully logged in: ${data}`);
         } else {
             res.status(400).json('Password does not match.');
