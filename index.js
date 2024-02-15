@@ -91,6 +91,40 @@ app.get('/recipe/:id', async(req, res) => {
     }
 });
 
+//GET Recipe by Tags
+app.get('/recipe/tag/:tag', async(req, res) => {
+
+    const tag = req.params.tag.replace(/\s/g, "");
+    const regex = new RegExp("^" + tag.split("").join("\\s*") + "$", "i");
+    const recipes = await Recipe.find({ tag: { $regex: regex } });
+
+    if (recipes.length === 0) {
+        res.status(404).json('No recipe found in the provided tag')
+    } else {
+        res.json(recipes);
+    }
+});
+
+//GET Recipe by name
+app.get('/recipe/name/:name', async(req, res) => {
+
+    try {
+        const name = req.params.name.trim().replace(/\s/g, "").toLowerCase();
+        const regex = new RegExp("^" + name.split("").join("\\s*") + "$", "i");
+        const recipe = await Recipe.findOne({ name: { $regex: regex } });
+        if (recipe == null) {
+          return res
+            .status(404)
+            .json({ message: `Cannot find recipe for ${name}` });
+        }
+        res.json(recipe);
+      } catch (error) {
+        res.status(500);
+        throw new Error(error.message);
+      }
+      
+});
+
 //PUT or Update Recipe
 app.put('/recipe/update/:id', async(req, res) => {
     try {
@@ -131,8 +165,7 @@ mongoose.connect('mongodb+srv://admin:12345@api-sharing.wwdxcbn.mongodb.net/api-
     app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}...`);
     });
-    
-    console.log('Connected to database');
+
 }).catch(() => {
     console.log(error);
-})
+});
