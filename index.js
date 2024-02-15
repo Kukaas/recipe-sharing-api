@@ -52,7 +52,48 @@ app.get('/user/login', async(req, res) => {
     } catch (error) {
         
     }
-})
+});
+
+//UPDATE User
+app.put('/user/update/:id', async(req, res) => {
+    try {
+        const { id } = req.params;
+        const { password } = req.body;
+
+        // Check if password is provided, if so, hash it
+        if (password) {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            req.body.password = hashedPassword;
+        }
+
+        const user = await collection.findByIdAndUpdate(id, req.body);
+        if (!user) {
+            return res.status(404).send({ message: `Cannot update User with the given ID ${id}` });
+        }
+        const updatedUser = await collection.findById(id);
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        res.status(500).json({ message: 'An error occurred' });
+    }
+});
+
+//DELETE User
+app.delete('/user/delete/:id', async(req, res) => {
+    try {
+        const { id } = req.params;
+        const user = await collection.findByIdAndDelete(id);
+        if (!user) {
+            return res.status(404).send({ message: `Cannot find the User with the given ID: ${id}` });
+        }
+
+        const deleteUser = user.name;
+        res.status(200).json(`The User "${deleteUser}" has been deleted`);
+
+    } catch (error) {
+        res.status(500).json("Server Error");
+    }
+});
+
 
 
 //POST Recipe
@@ -147,7 +188,7 @@ app.delete('/recipe/delete/:id', async(req, res) => {
         const { id } = req.params;
         const recipe = await Recipe.findByIdAndDelete(id);
         if (!recipe) {
-            return res.status(404).send({ message: `Cannot update Recipe with the given ID ${id}` });
+            return res.status(404).send({ message: `Cannot delete Recipe with the given ID ${id}` });
         }
 
         const deleteRecipe = recipe.name;
