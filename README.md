@@ -16,10 +16,10 @@ This application is a Recipe Sharing System built using Node.js, Express, and Mo
 In the culinary world, sharing and discovering new recipes is an integral part of the experience. The Recipe Sharing API aims to facilitate this exchange by providing developers with a platform to build applications that enable users to share, discover, and explore recipes effortlessly.
 
 1. **Recipe Management**:
-- **Create:**Users can create their own recipes, including ingredients, preparation steps, and more.
-- **Retrieve:**Users can access recipes  created by other users with detailed information such as title, description, ingredients, instructions, ratings.
-- **Update:**Recipes can be edited and modified to reflect changes or improvements.
-- **Delete:**Users have the ability to remove recipes from their collection.
+- **Create:** Users can create their own recipes, including ingredients, preparation steps, and more.
+- **Retrieve:** Users can access recipes  created by other users with detailed information such as title, description, ingredients, instructions, ratings.
+- **Update:** Recipes can be edited and modified to reflect changes or improvements.
+- **Delete:** Users have the ability to remove recipes from their collection.
 
 2. **Search and Discovery**:
 - **Name-Based Search:** Users may search for recipes by name. This feature enables users to easily locate a certain recipe if they know its name.
